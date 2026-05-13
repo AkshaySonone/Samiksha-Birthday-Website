@@ -1269,6 +1269,20 @@ body {
         left: 10px !important;
         opacity: 1 !important;
     }
+
+    /* Auto-open card on mobile when modal is active */
+    .boxMail.active .boxMail-container .card1 {
+        transform: translate(-187px, -250px) rotateY(-140deg) !important;
+    }
+
+    .boxMail.active .boxMail-container .card2-content {
+        transform: translate(20px, 20px) !important;
+        box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .boxMail.active .boxMail-container .card2 h3 {
+        animation: none !important;
+    }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
