@@ -233,17 +233,34 @@
         }, 6000)
     }
     
-    // Ensure button element is directly clickable
+    // Ensure button element opens the birthday card modal
     var btnElement = document.getElementById("btn__letter");
     if (btnElement) {
-        // Add multiple event listeners for compatibility
-        btnElement.addEventListener("click", handleButtonClick, false);
-        btnElement.addEventListener("touchend", handleButtonClick, false);
-        btnElement.onclick = handleButtonClick;
+        // Open birthday card modal on click
+        btnElement.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            boxmail.classList.add('active');
+        }, false);
+        btnElement.addEventListener("touchend", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            boxmail.classList.add('active');
+        }, false);
+        btnElement.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            boxmail.classList.add('active');
+        };
     }
     
     // Also attach jQuery listener
-    $("#btn__letter").on("click", handleButtonClick);
+    $("#btn__letter").on("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        boxmail.classList.add('active');
+    });
+
     $(".close").on("click", function () {
         clearInterval(intervalContent)
         document.querySelector(".title__letter").textContent = "";
