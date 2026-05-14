@@ -1096,7 +1096,6 @@ body {
 
     .title .happy, .title .birthday {
         font-size: 1.8rem;
-        text-shadow: none;
     }
 
     .title .happy span, .title .birthday span {
