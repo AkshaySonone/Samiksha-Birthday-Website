@@ -1109,6 +1109,7 @@ body {
         pointer-events: auto;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
+        margin: 0 auto;
     }
 
     #btn__letter:active {
@@ -1118,6 +1119,26 @@ body {
     .date__of__birth span, .name span {
         margin: 0px 10px;
         font-size: 0.8rem;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content .left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .content .right .image {
@@ -1271,23 +1292,31 @@ body {
     }
 
     /* Auto-open card on mobile when modal is active */
+    .boxMail.active .boxMail-container {
+        position: relative;
+        width: 95vw;
+        max-width: 95vw;
+        margin: 0 auto;
+        transform: none !important;
+    }
+
     .boxMail.active .boxMail-container .card1,
     .boxMail.active .boxMail-container .card2 {
-        position: absolute;
+        position: relative;
         width: 100%;
-        height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none !important;
     }
 
     .boxMail.active .boxMail-container .card1 {
-        transform: translate(-187px, -250px) rotateY(-140deg) !important;
+        transform: none !important;
     }
 
     .boxMail.active .boxMail-container .card2-content {
-        transform: translate(20px, 20px) !important;
-        box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.4) !important;
+        transform: none !important;
+        box-shadow: none !important;
     }
 
     .boxMail.active .boxMail-container .card2 h3 {
