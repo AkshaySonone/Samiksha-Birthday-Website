@@ -852,6 +852,12 @@ body {
     visibility: visible;
     transform: scale(1);
 }
+.boxMail.active.opened .boxMail-container .card1 {
+    display: none;
+}
+.boxMail.active.opened .boxMail-container .card2 {
+    display: block;
+}
 .boxMail .boxMail-container{
     position: absolute;
     width: 750px;
@@ -862,6 +868,9 @@ body {
     -webkit-perspective: 2000px;
     perspective: 2000px;
     transition: all 0.5s;
+}
+.boxMail .boxMail-container .card1 {
+    cursor: pointer;
 }
 .boxMail .boxMail-container:hover{
     transform: rotate(-5deg);
