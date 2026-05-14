@@ -1096,6 +1096,7 @@ body {
 
     .title .happy, .title .birthday {
         font-size: 1.8rem;
+        text-shadow: none;
     }
 
     .title .happy span, .title .birthday span {
@@ -1293,11 +1294,13 @@ body {
 
     /* Auto-open card on mobile when modal is active */
     .boxMail.active .boxMail-container {
-        position: relative;
+        position: absolute;
         width: 95vw;
-        max-width: 95vw;
-        margin: 0 auto;
-        transform: none !important;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
     }
 
     .boxMail.active .boxMail-container .card1,
@@ -1312,15 +1315,39 @@ body {
 
     .boxMail.active .boxMail-container .card1 {
         transform: none !important;
+        cursor: pointer;
     }
 
     .boxMail.active .boxMail-container .card2-content {
         transform: none !important;
         box-shadow: none !important;
+        max-height: 60vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
     }
 
     .boxMail.active .boxMail-container .card2 h3 {
         animation: none !important;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Mobile two-click flow: hide card2 by default */
+    .boxMail.active .boxMail-container .card2 {
+        display: none;
+    }
+
+    /* Show card2 when opened */
+    .boxMail.active.opened .boxMail-container .card1 {
+        display: none;
+    }
+
+    .boxMail.active.opened .boxMail-container .card2 {
+        display: block;
     }
 }
 
