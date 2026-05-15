@@ -1303,7 +1303,8 @@ body {
     /* Auto-open card on mobile when modal is active */
     .boxMail.active .boxMail-container {
         position: absolute;
-        width: 95vw;
+        width: auto;
+        max-width: 95vw;
         height: auto;
         top: 50%;
         left: 50%;
