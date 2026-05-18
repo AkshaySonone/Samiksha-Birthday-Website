@@ -1232,19 +1232,17 @@ body {
     }
 
     .boxMail .boxMail-container {
-        width: auto;
-        max-width: 95vw;
+        width: 95vw;
         height: auto;
         max-height: 90vh;
-        display: inline-flex;
+        display: flex;
         transform: scale(1);
         flex-direction: column;
     }
 
     .boxMail .boxMail-container .card1,
     .boxMail .boxMail-container .card2 {
-        width: auto;
-        max-width: 95vw;
+        width: 100%;
         height: auto;
         position: relative;
         transform: none !important;
@@ -1305,8 +1303,7 @@ body {
     /* Auto-open card on mobile when modal is active */
     .boxMail.active .boxMail-container {
         position: absolute;
-        width: auto;
-        max-width: 95vw;
+        width: 95vw;
         height: auto;
         top: 50%;
         left: 50%;
