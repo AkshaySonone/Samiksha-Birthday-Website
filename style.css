@@ -1098,7 +1098,7 @@ body {
     }
 
     .mewmew-corner {
-        width: 130px;
+        width: 180px;
         top: 10px;
         right: 10px;
     }
@@ -1307,7 +1307,7 @@ body {
         height: auto;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) rotate(2deg);
         margin: 0;
     }
 
