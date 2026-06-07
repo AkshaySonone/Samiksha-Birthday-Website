@@ -214,7 +214,7 @@ body {
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 0px) {
     .mewmew-corner {
         width: 150px;
     }
@@ -650,7 +650,7 @@ body {
 
 
 
-@media screen and (max-width: 658px)   {
+@media screen and (max-width: 0px)   {
 
     .flag__birthday .flag__left {
         transform: rotate(-10deg) translate(-119px,3px);
@@ -1082,7 +1082,7 @@ body {
     opacity: 0.7;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 0px) {
     .boxMail .fa-xmark {
         font-size: 28px;
         padding: 20px 20px;
@@ -1092,7 +1092,7 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 0px) {
     body {
         font-size: 14px;
     }
@@ -1357,9 +1357,8 @@ body {
     .boxMail.active.opened .boxMail-container .card2 {
         display: block;
     }
-}
 
-@media screen and (max-width: 768px) and (min-width: 481px) {
+@media screen and (max-width: 0px) and (min-width: 481px) {
     .mewmew-corner {
         width: 130px;
         top: 15px;
@@ -1424,7 +1423,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 0px) {
     .content .left {
         width: 50%;
     }
@@ -1438,42 +1437,6 @@ body {
     }
 }
 
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    /* Disable hover animations on touch devices */
-    .boxMail .boxMail-container:hover .card1 {
-        transform: none !important;
-    }
-
-    .boxMail .boxMail-container:hover .card2-content {
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    .boxMail .boxMail-container:hover .card2 h3 {
-        animation: none !important;
-    }
-
-    #btn__letter:hover {
-        border-color: var(--color-heart);
-        background-color: var(--color-heart);
-        box-shadow: none;
-    }
-
-    #btn__letter:hover i {
-        animation: none !important;
-    }
-
-    .boxMail .boxMail-container .card2 h3 {
-        animation: none !important;
-    }
-
-    .boxMail .boxMail-container .card2:hover h3 {
-        animation: none !important;
-    }
-
-    /* Ensure content is scrollable on touch */
-    .boxMail .boxMail-container .card2 .card2-content {
-        -webkit-overflow-scrolling: touch;
-    }
+/* Touch device optimizations disabled temporarily to prevent unintended interactions on mobile. Will revisit for better mobile UX in the future. 
+*/
 }
