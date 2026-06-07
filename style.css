@@ -214,7 +214,7 @@ body {
     pointer-events: none;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 768px) {
     .mewmew-corner {
         width: 150px;
     }
@@ -650,7 +650,7 @@ body {
 
 
 
-@media screen and (max-width: 0px)   {
+@media screen and (max-width: 658px)   {
 
     .flag__birthday .flag__left {
         transform: rotate(-10deg) translate(-119px,3px);
@@ -1082,7 +1082,7 @@ body {
     opacity: 0.7;
 }
 
-@media (max-width: 0px) {
+@media (max-width: 768px) {
     .boxMail .fa-xmark {
         font-size: 28px;
         padding: 20px 20px;
@@ -1092,7 +1092,7 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media screen and (max-width: 0px) {
+@media screen and (max-width: 480px) {
     body {
         font-size: 14px;
     }
@@ -1357,8 +1357,9 @@ body {
     .boxMail.active.opened .boxMail-container .card2 {
         display: block;
     }
+    }
 
-@media screen and (max-width: 0px) and (min-width: 481px) {
+@media screen and (max-width: 768px) and (min-width: 481px) {
     .mewmew-corner {
         width: 130px;
         top: 15px;
@@ -1423,7 +1424,7 @@ body {
     }
 }
 
-@media screen and (max-width: 0px) {
+@media screen and (max-width: 1024px) {
     .content .left {
         width: 50%;
     }
@@ -1439,4 +1440,3 @@ body {
 
 /* Touch device optimizations disabled temporarily to prevent unintended interactions on mobile. Will revisit for better mobile UX in the future. 
 */
-}
