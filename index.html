@@ -274,11 +274,25 @@ function handleButtonClick(e) {
         }, false);
     }
 
-    document.querySelectorAll('.boxMail-container').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('tilt');
-        });
+// Mobile tilt + open flow only on card click
+document.querySelectorAll('.boxMail-container .card1').forEach(card1 => {
+    card1.addEventListener('click', (e) => {
+        if (window.innerWidth <= 480) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!card1.parentElement.classList.contains('tilt')) {
+                card1.parentElement.classList.add('tilt');
+                setTimeout(() => {
+                    card1.parentElement.classList.add('opened');
+                }, 600); // delay matches CSS transition
+            } else {
+                card1.parentElement.classList.remove('opened');
+                card1.parentElement.classList.remove('tilt');
+            }
+        }
     });
+});
 
 
     document.querySelectorAll('.boxMail-container').forEach(card => {
