@@ -1170,7 +1170,7 @@ body {
 
     .title .happy, .title .birthday {
         font-size: 1.8rem;
-        text-shadow: 0 0 3px white, 0 0 6px white; /* Softer glow for small screens */
+        text-shadow: 0 0 3px black, 0 0 6px black; /* Softer glow for small screens */
     }
 
     .title .happy span, .title .birthday span {
