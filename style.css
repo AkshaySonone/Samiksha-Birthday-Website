@@ -1168,17 +1168,17 @@ body {
         right: 10px;
     }
 
-.title .happy, .title .birthday{
-    position: relative;
-    text-shadow: 4px 4px var(--color-black), 
-                -4px 4px var(--color-black), 
-                4px -4px var(--color-black), 
-                -4px -4px var(--color-black), 
-                4px 8px 0 var(--color-black);
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-}
+    .title .happy, .title .birthday{
+        position: relative;
+        text-shadow: 4px 4px var(--color-black), 
+                    -4px 4px var(--color-black), 
+                    4px -4px var(--color-black), 
+                    -4px -4px var(--color-black), 
+                    4px 8px 0 var(--color-black);
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+    }
     .title .happy span, .title .birthday span {
         transform: translateY(30px);
     }
