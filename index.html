@@ -195,20 +195,29 @@
     var intervalContent;
     var intervalTitle;
     
-    // Button click handler - using both jQuery and vanilla JS for compatibility
-    function handleButtonClick(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        boxmail.classList.add('active');
-        boxmail.classList.remove('opened');
-        currentIndexLetter = 0;
+function handleButtonClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-        if (window.innerWidth <= 480) {
-            setTimeout(function () {
+    // Reset everything first
+    boxmail.classList.remove('tilt');
+    boxmail.classList.remove('opened');
+    boxmail.classList.remove('active');
+
+    // Start fresh
+    boxmail.classList.add('active');
+
+    if (window.innerWidth <= 480) {
+        // First tilt, then open card2
+        setTimeout(() => {
+            boxmail.classList.add('tilt');
+            setTimeout(() => {
                 boxmail.classList.add('opened');
-            }, 1200);
-        }
+            }, 800); // delay for tilt animation
+        }, 200);
     }
+}
+
     
     let boxmail = document.querySelector('.boxMail');
     let btnElement = document.getElementById("btn__letter");
