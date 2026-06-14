@@ -271,6 +271,20 @@
         });
     });
 
+
+    document.querySelectorAll('.boxMail-container').forEach(card => {
+        card.addEventListener('click', () => {
+            if (!card.classList.contains('tilt')) {
+                card.classList.add('tilt');
+            } else if (!card.classList.contains('opened')) {
+                card.classList.add('opened');
+            } else {
+      // Third tap → close card2 and reset card1 straight
+                card.classList.remove('opened');
+                card.classList.remove('tilt');
+            }
+        });
+    });
 </script>
 
 </html>
