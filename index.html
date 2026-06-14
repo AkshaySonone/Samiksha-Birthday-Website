@@ -200,6 +200,13 @@ function handleButtonClick(e) {
     e.stopPropagation();
 
     // Reset everything first
+    boxmail.classList.remove('tilt', 'opened', 'active');
+
+    // Start fresh
+    boxmail.classList.add('active');
+}
+
+    // Reset everything first
     boxmail.classList.remove('tilt');
     boxmail.classList.remove('opened');
     boxmail.classList.remove('active');
@@ -253,16 +260,22 @@ function handleButtonClick(e) {
         messageText.textContent = "";
         currentIndexLetter = 0;
         messagePanel.classList.remove('shown');
+    
+        // Reset everything
         boxmail.classList.remove('active');
         boxmail.classList.remove('opened');
-    })
-
+        boxmail.classList.remove('tilt');
+    });
+    
     if (close) {
         close.addEventListener('click', function () {
+            // Reset everything
             boxmail.classList.remove('active');
             boxmail.classList.remove('opened');
+            boxmail.classList.remove('tilt');
         });
     }
+
 
     // Touch device improvements
     document.addEventListener('touchstart', function() {}, { passive: true });
@@ -299,8 +312,6 @@ document.querySelectorAll('.boxMail-container .card1').forEach(card1 => {
         }
     });
 });
-
-
 
     document.querySelectorAll('.boxMail-container').forEach(card => {
         card.addEventListener('click', () => {
