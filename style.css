@@ -1168,17 +1168,19 @@ body {
         right: 10px;
     }
 
-    .title .happy, .title .birthday{
-        position: relative;
-        text-shadow: 4px 4px var(--color-black), 
-                    -4px 4px var(--color-black), 
-                    4px -4px var(--color-black), 
-                    -4px -4px var(--color-black), 
-                    4px 8px 0 var(--color-black);
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-    }
+.title .happy, .title .birthday{
+    position: relative;
+    text-shadow: 4px 4px var(--color-black), 
+                -4px 4px var(--color-black), 
+                4px -4px var(--color-black), 
+                -4px -4px var(--color-black), 
+                4px 8px 0 var(--color-black);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+
     .title .happy span, .title .birthday span {
         transform: translateY(30px);
     }
@@ -1454,6 +1456,29 @@ body {
     .boxMail .boxMail-container.tilt .card1 {
         transform: translate(-50%, -50%) rotate(-5deg) !important;
     }
+
+        /* Smooth animation */
+    .boxMail .boxMail-container .card1,
+    .boxMail .boxMail-container .card2 {
+        transition: transform 0.4s ease;
+    }
+
+    /* Tilt effect */
+    .boxMail .boxMail-container.tilt .card1 {
+        transform: rotate(-5deg);
+    }
+
+    /* Card2 opens at same tilt */
+    .boxMail .boxMail-container.opened .card2 {
+        display: block;
+        transform: rotate(-5deg);
+    }
+
+    /* Reset when closed */
+    .boxMail .boxMail-container:not(.tilt) .card1 {
+        transform: rotate(0deg);
+    }
+
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
