@@ -1178,7 +1178,7 @@ body {
     font-weight: bold;
     display: flex;
     justify-content: center;
-
+}
     .title .happy span, .title .birthday span {
         transform: translateY(30px);
     }
