@@ -1448,6 +1448,12 @@ body {
     .boxMail .boxMail-container.tilt .card1 {
         transform: translate(-50%, -50%) rotate(-5deg) !important;
     }
+
+    .title .happy, 
+    .title .birthday {
+        text-shadow: 0 0 5px black,
+                     0 0 10px black; /* Black glow for mobile */
+    }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
