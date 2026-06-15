@@ -852,23 +852,14 @@ body {
     visibility: visible;
     transform: scale(1);
 }
-.boxMail.active.opened .boxMail-container {
-    transform: none !important;
-    width: 750px;
-    max-width: 95vw;
-}
-.boxMail.active.opened .boxMail-container .card1 {
-    display: none;
-}
-.boxMail.active.opened .boxMail-container .card2 {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
-}
+/* Default when active: show Card1, hide Card2 */
+.boxMail.active .boxMail-container .card1 { display: block; }
+.boxMail.active .boxMail-container .card2 { display: none; }
+
+/* When container is opened: swap cards */
+.boxMail.active .boxMail-container.opened .card1 { display: none; }
+.boxMail.active .boxMail-container.opened .card2 { display: block; }
+
 .boxMail .boxMail-container{
     position: absolute;
     width: 750px;
@@ -889,52 +880,6 @@ body {
 }
 .boxMail .boxMail-container:hover .card1{
     transform: translate(-187px, -250px) rotateY(-140deg);
-}
-.boxMail .message-panel {
-    display: none !important;
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    width: 90%;
-    max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    border: 3px solid var(--color-text-pink);
-    color: var(--color-black);
-    padding: 18px 20px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: transform 0.45s ease, opacity 0.45s ease, visibility 0.45s ease;
-    z-index: 1;
-}
-.boxMail .message-panel.shown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-}
-.boxMail .message-panel-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.boxMail .message-panel h4 {
-    margin: 0;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.6rem;
-    color: var(--color-text-pink);
-    text-align: center;
-}
-.boxMail .message-text {
-    margin: 0;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-black);
-    white-space: pre-wrap;
 }
 .boxMail .boxMail-container .card1,
 .boxMail .boxMail-container .card2{
@@ -1014,14 +959,6 @@ body {
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
-}
-.boxMail .boxMail-container .card2 .card2-content .text__letter {
-    margin: 20px 0 10px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1rem;
-    line-height: 1.6;
-    min-height: 4rem;
-    white-space: pre-wrap;
 }
 .boxMail .boxMail-container:hover .card2-content{
     transform: translate(20px, 20px);
@@ -1147,7 +1084,7 @@ body {
     opacity: 0.7;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .boxMail .fa-xmark {
         font-size: 28px;
         padding: 20px 20px;
@@ -1163,31 +1100,21 @@ body {
     }
 
     .mewmew-corner {
-        width: 180px;
+        width: 130px;
         top: 10px;
         right: 10px;
     }
 
-    .title .happy,
-    .title .birthday {
-        position: relative;
-        text-shadow: 4px 4px var(--color-black),
-                     -4px 4px var(--color-black),
-                     4px -4px var(--color-black),
-                     -4px -4px var(--color-black),
-                     4px 8px 0 var(--color-black);
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
+    .title .happy, .title .birthday {
+        font-size: 1.8rem;
     }
 
-    .title .happy span,
-    .title .birthday span {
+    .title .happy span, .title .birthday span {
         transform: translateY(30px);
     }
 
     #btn__letter {
-        width: 240px;
+        width: auto;
         padding: 12px 20px;
         font-size: 1.1rem;
         pointer-events: auto;
@@ -1201,8 +1128,7 @@ body {
         transform: scale(0.95);
     }
 
-    .date__of__birth span,
-    .name span {
+    .date__of__birth span, .name span {
         margin: 0px 10px;
         font-size: 0.8rem;
     }
@@ -1313,36 +1239,48 @@ body {
         height: auto;
         max-height: 90vh;
         display: flex;
-        flex-direction: column;
         transform: scale(1);
-        transition: transform 0.4s ease;
+        flex-direction: column;
     }
 
-    .boxMail .message-panel {
-        width: 95vw;
-        bottom: 20px;
-    }
+/* Keep Card1 centered */
+.boxMail .boxMail-container .card1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    padding: 20px 15px;
+    min-height: auto;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
-    .boxMail .boxMail-container .card1,
-    .boxMail .boxMail-container .card2 {
-        width: 100%;
-        height: auto;
-        position: relative;
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
-        transition: transform 0.4s ease;
-    }
-
-    .boxMail .boxMail-container .card1 {
-        padding: 20px 15px;
-        min-height: auto;
-        cursor: pointer;
-    }
+/* Card2 can be relative for stacked layout */
+.boxMail .boxMail-container .card2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+}
 
     .boxMail .boxMail-container .card2 {
         min-height: 300px;
-        display: none; /* hidden by default */
+    }
+
+    .boxMail .boxMail-container:hover .card1 {
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .boxMail .boxMail-container:hover .card2-content {
+        transform: none !important;
     }
 
     .boxMail .boxMail-container .card2 .card2-content {
@@ -1364,13 +1302,20 @@ body {
         margin-bottom: 10px;
     }
 
+    .boxMail .boxMail-container .card1 .username {
+        font-size: 20px;
+        text-align: center;
+        line-height: 1.3;
+        letter-spacing: 1px;
+        margin: 0;
+    }
+
     .boxMail .boxMail-container .card1 h3 {
         font-size: 24px;
-        width: 100%;
+        text-align: center;
         line-height: 1.3;
         letter-spacing: 2px;
-        text-shadow: 0 0 3px white,
-                     0 0 6px white;
+        margin: 0;
     }
 
     .boxMail .boxMail-container .card2 .card2-content .imageCute2 {
@@ -1391,34 +1336,68 @@ body {
         margin: 0;
     }
 
-    .boxMail.active.opened .boxMail-container {
-        transform: translate(-50%, -50%) rotate(0deg);
-        width: 95vw;
-    }
-
-    .boxMail.active.opened .boxMail-container .card1 {
-        display: none;
-    }
-
-    .boxMail.active.opened .boxMail-container .card2 {
-        display: block;
-        margin: 0 auto;
+    /* Keep Card1 centered when active */
+    .boxMail.active .boxMail-container .card1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 100%;
+        height: auto;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 
-    .boxMail.active.opened .boxMail-container .card2 .card2-content {
+    /* Card2 stays relative */
+    .boxMail.active .boxMail-container .card2 {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none !important;
+    }
+
+
+
+    .boxMail.active .boxMail-container .card2-content {
+        transform: none !important;
+        box-shadow: none !important;
+        max-height: 60vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 20px;
     }
 
-    /* Tilt effect on container */
-    .boxMail .boxMail-container.tilt {
-        transform: rotate(-5deg);
+    .boxMail.active .boxMail-container .card2 h3 {
+        animation: none !important;
+        text-align: center;
+        padding: 20px;
     }
 
-    /* Reset when closed */
-    .boxMail .boxMail-container:not(.tilt) {
-        transform: rotate(0deg);
+    /* Default when active: show Card1, hide Card2 */
+    .boxMail.active .boxMail-container .card1 {
+        display: block;
     }
+    .boxMail.active .boxMail-container .card2 {
+        display: none;
+    }
+
+    /* When container is opened: swap cards */
+    .boxMail.active .boxMail-container.opened .card1 {
+        display: none;
+    }
+    .boxMail.active .boxMail-container.opened .card2 {
+        display: block;
+    }
+
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
@@ -1435,6 +1414,7 @@ body {
     #btn__letter {
         width: 220px;
         padding: 5px 12px;
+        white-space: nowrap;
     }
 
     .content .right .image {
@@ -1459,6 +1439,11 @@ body {
 
     .boxMail .boxMail-container .card1 {
         padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 
     .boxMail .boxMail-container .card2 {
@@ -1500,5 +1485,42 @@ body {
     }
 }
 
-/* Touch device optimizations disabled temporarily to prevent unintended interactions on mobile. Will revisit for better mobile UX in the future. 
-*/
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Disable hover animations on touch devices */
+    .boxMail .boxMail-container:hover .card1 {
+        transform: none !important;
+    }
+
+    .boxMail .boxMail-container:hover .card2-content {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .boxMail .boxMail-container:hover .card2 h3 {
+        animation: none !important;
+    }
+
+    #btn__letter:hover {
+        border-color: var(--color-heart);
+        background-color: var(--color-heart);
+        box-shadow: none;
+    }
+
+    #btn__letter:hover i {
+        animation: none !important;
+    }
+
+    .boxMail .boxMail-container .card2 h3 {
+        animation: none !important;
+    }
+
+    .boxMail .boxMail-container .card2:hover h3 {
+        animation: none !important;
+    }
+
+    /* Ensure content is scrollable on touch */
+    .boxMail .boxMail-container .card2 .card2-content {
+        -webkit-overflow-scrolling: touch;
+    }
+}
