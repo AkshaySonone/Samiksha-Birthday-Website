@@ -217,17 +217,17 @@ if (btnElement) {
     btnElement.addEventListener("touchend", handleButtonClick, false);
 }
 
-// ✅ Close button → reset everything
-if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-        boxmail.classList.remove('active', 'opened', 'tilt');
-        messageText.textContent = "";
-        currentIndexLetter = 0;
-        messagePanel.classList.remove('shown');
+closeBtn.addEventListener('click', function () {
+    boxmail.classList.remove('active', 'opened', 'tilt');
+    document.querySelectorAll('.boxMail-container').forEach(container => {
+        container.classList.remove('opened', 'tilt');
     });
-}
+    messageText.textContent = "";
+    currentIndexLetter = 0;
+    messagePanel.classList.remove('shown');
+});
 
-// ✅ Tilt + open flow on card1 click
+
 document.querySelectorAll('.boxMail-container .card1').forEach(card1 => {
     card1.addEventListener('click', (e) => {
         e.preventDefault();
@@ -239,7 +239,7 @@ document.querySelectorAll('.boxMail-container .card1').forEach(card1 => {
             container.classList.add('tilt');
             setTimeout(() => {
                 container.classList.add('opened');
-            }, 800); // delay for tilt animation
+            }, 800); // wait for tilt animation
         } else {
             container.classList.remove('opened', 'tilt');
         }
